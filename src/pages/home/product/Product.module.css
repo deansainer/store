@@ -1,0 +1,23 @@
+.product_card {
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 280px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.product_icon{
+    width: 240px;
+    height: 250px;
+}
+
+
+.add_to_cart_btn{
+    margin-top: 10px;
+    width: 39%;
+}
