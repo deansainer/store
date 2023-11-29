@@ -1,0 +1,31 @@
+.cart{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 800px;
+    height: 200px;
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart_image{
+    width: 155px;
+    margin: 0px;
+}
+
+.cart_data{
+    margin: auto;
+    text-align: center;
+}
+
+.cart_btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgb(245, 122, 126);
+    border-color: rgb(245, 122, 126);
+    padding: auto;
+}

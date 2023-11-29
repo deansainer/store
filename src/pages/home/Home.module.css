@@ -3,3 +3,21 @@
     align-items: center;
     justify-content: center;
 }
+
+.header{
+    background-color: #eaeaea;
+    color: white;
+    height: 350px;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.header_title{
+    font-size: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}

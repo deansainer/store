@@ -1,15 +1,24 @@
 import React from "react";
 import { useCart } from "../../context/CartContext";
+import classes from './Cart.module.css'
+import CartItem from '../../components/navbar/cart/CartItem'
 
 const Cart = () => {
 
   const {cartItems} = useCart();
 
   return (
-    <div>
-     {cartItems.map((item) => (
-      <h5>{item.id} {item.name} {item.price}</h5>
-     ))}
+    <div className={classes.cart_list}>
+      {cartItems.length > 0 ? (
+        <>
+          <p className={classes.shopping_cart_title}>Shopping Cart</p>
+          {cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} cartItem={cartItem} />
+          ))}
+        </>
+      ) : (
+        <h5>Your cart is empty.</h5>
+      )}
     </div>
   );
 };

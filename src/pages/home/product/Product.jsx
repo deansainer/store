@@ -10,9 +10,7 @@ const Product = (props) => {
       <img alt={image} className={classes.product_icon} src={image}></img>
       <span>{name}</span>
       <span>${price}</span>
-      <button onClick={() => props.addToCart(props.product)} className={`${classes.add_to_cart_btn} btn btn-primary`}>
-        Add to cart
-      </button>
+      <button onClick={() => props.addToCart(props.product)} className={classes.cart_btn}>+</button>
     </div>
   );
 };
