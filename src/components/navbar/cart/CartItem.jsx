@@ -3,7 +3,7 @@ import classes from "./CartItem.module.css";
 import { useCart } from "../../../context/CartContext";
 
 const CartItem = (props) => {
-  const { id, name, price, image } = props.cartItem;
+  const { id, name, price, image, amount } = props.cartItem;
   const {deleteFromCart} = useCart()
 
   return (
@@ -12,6 +12,7 @@ const CartItem = (props) => {
       <div className={classes.cart_data}>
         <h5>{name}</h5>
         <p>${price}</p>
+        <p>Amount: {amount}</p>
       </div>
       <button onClick={()=> deleteFromCart(id)} className={classes.cart_btn}>-</button>
     </div>
