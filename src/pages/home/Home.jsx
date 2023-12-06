@@ -8,17 +8,17 @@ import axios from "axios";
 const Home = () => {
   const { addToCart } = useCart();
   const [products, setProducts] = useState([]);
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    fetch("https://656c6204e1e03bfd572e3dbb.mockapi.io/api/products")
-      .then((res) => res.json())
-      .then((json) => setProducts(json));
+    axios
+      .get("https://656c6204e1e03bfd572e3dbb.mockapi.io/api/products")
+      .then((res) => setProducts(res.data))
+      .catch((error) => console.error(`Error fetching products: ${error}`));
   }, []);
 
-  
-  function handleSearchValue(event){
-    setSearchValue(event.target.value)
+  function handleSearchValue(event) {
+    setSearchValue(event.target.value);
   }
 
   return (
@@ -28,13 +28,23 @@ const Home = () => {
       </div>
 
       <div className={classes.search}>
-        <input className={classes.search_input} type="text" onChange={handleSearchValue} value={searchValue} placeholder="Search..."></input>
+        <input
+          className={classes.search_input}
+          type="text"
+          onChange={handleSearchValue}
+          value={searchValue}
+          placeholder="Search..."
+        ></input>
       </div>
-      
+
       <div className={classes.product_list}>
-        {products.filter((product) => product.name.toLowerCase().includes(searchValue.toLocaleLowerCase())).map((product) => (
-          <Product key={product.id} product={product} addToCart={addToCart} />
-        ))}
+        {products
+          .filter((product) =>
+            product.name.toLowerCase().includes(searchValue.toLocaleLowerCase())
+          )
+          .map((product) => (
+            <Product key={product.id} product={product} addToCart={addToCart} />
+          ))}
       </div>
     </div>
   );
