@@ -7,6 +7,7 @@ const Cart = () => {
   const { cartItems } = useCart();
   const [cartTotal, setCartTotal] = useState(0);
 
+
   useEffect(() => {
     const total = cartItems.reduce(
       (sum, item) => sum + item.price * item.amount,
