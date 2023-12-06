@@ -8,12 +8,22 @@ import axios from "axios";
 const Home = () => {
   const { addToCart } = useCart();
   const [products, setProducts] = useState([]);
+  const [searchValue, setSearchValue] = useState('')
 
   useEffect(() => {
     fetch("https://656c6204e1e03bfd572e3dbb.mockapi.io/api/products")
       .then((res) => res.json())
       .then((json) => setProducts(json));
   }, []);
+
+  
+  function search(event) {
+    setSearchValue(event.target.value) // handling search value
+    const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchValue.toLowerCase()))
+    setProducts(filteredProducts)
+    console.log(searchValue);
+  }
+
 
   return (
     <div>
@@ -22,8 +32,8 @@ const Home = () => {
       </div>
 
       <div className={classes.search}>
-        <input type="text" placeholder="Search..."></input>
-        <button>Find</button>
+        <input type="text" onChange={search} value={searchValue} placeholder="Search..."></input>
+        <img onClick={() => setSearchValue('')} src="https://cdn-icons-png.flaticon.com/128/3667/3667999.png" className={classes.clear_btn}></img>
       </div>
       
       <div className={classes.product_list}>
