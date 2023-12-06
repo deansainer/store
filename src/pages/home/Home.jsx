@@ -17,13 +17,9 @@ const Home = () => {
   }, []);
 
   
-  function search(event) {
-    setSearchValue(event.target.value) // handling search value
-    const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchValue.toLowerCase()))
-    setProducts(filteredProducts)
-    console.log(searchValue);
+  function handleSearchValue(event){
+    setSearchValue(event.target.value)
   }
-
 
   return (
     <div>
@@ -32,12 +28,11 @@ const Home = () => {
       </div>
 
       <div className={classes.search}>
-        <input type="text" onChange={search} value={searchValue} placeholder="Search..."></input>
-        <img onClick={() => setSearchValue('')} src="https://cdn-icons-png.flaticon.com/128/3667/3667999.png" className={classes.clear_btn}></img>
+        <input className={classes.search_input} type="text" onChange={handleSearchValue} value={searchValue} placeholder="Search..."></input>
       </div>
       
       <div className={classes.product_list}>
-        {products.map((product) => (
+        {products.filter((product) => product.name.toLowerCase().includes(searchValue.toLocaleLowerCase())).map((product) => (
           <Product key={product.id} product={product} addToCart={addToCart} />
         ))}
       </div>
