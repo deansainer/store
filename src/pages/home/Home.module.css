@@ -1,8 +1,9 @@
-.product_list{
+.product_list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
 
 .header{
     background-color: black;
@@ -20,4 +21,10 @@
     font-size: 70px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
+}
+
+.search{
+    display: flex;
+    padding: 10px;
+    justify-content: end;
 }

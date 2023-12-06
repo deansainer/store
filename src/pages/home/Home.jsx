@@ -21,6 +21,11 @@ const Home = () => {
         <p className={classes.header_title}>Apple Store</p>
       </div>
 
+      <div className={classes.search}>
+        <input type="text" placeholder="Search..."></input>
+        <button>Find</button>
+      </div>
+      
       <div className={classes.product_list}>
         {products.map((product) => (
           <Product key={product.id} product={product} addToCart={addToCart} />

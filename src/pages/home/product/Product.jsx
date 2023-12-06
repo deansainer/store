@@ -9,6 +9,11 @@ const Product = (props) => {
     setAmount(e.target.value)
   }
   
+  function handleAddToCart() {
+    props.addToCart(props.product, amount)
+    setAmount(1)
+  }
+  
   return (
     <div className={classes.product_card}>
       <img alt={image} className={classes.product_icon} src={image}></img>
@@ -16,7 +21,7 @@ const Product = (props) => {
       <span>${price}</span>
       <div className={classes.amount_and_add}>
       <input onChange={handleAmount} value={amount} className={classes.amount_input} type="text"></input>
-      <button onClick={() => props.addToCart(props.product, amount)} className={classes.cart_btn}>+</button>
+      <button onClick={handleAddToCart} className={classes.cart_btn}>+</button>
       </div>
     </div>
   );
