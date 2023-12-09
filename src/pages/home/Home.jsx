@@ -38,8 +38,7 @@ const Home = () => {
       </div>
 
       <div className={classes.product_list}>
-        {products
-          .filter((product) =>
+        {products.filter((product) =>
             product.name.toLowerCase().includes(searchValue.toLocaleLowerCase())
           )
           .map((product) => (

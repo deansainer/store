@@ -1,6 +1,7 @@
 .navbar{
     display: flex;
     justify-content: flex-end;
+    
 }
 
 .nav_item{
@@ -9,4 +10,23 @@
     text-decoration: none;
     font-size: 20px;
     padding: 6px;
+    display: flex;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin-top: 4px;
+    padding-left: 1px;
+    margin-left: 6px;
+    padding-right: 2px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: #212529;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    text-align: center;
+    font: 12px Arial, sans-serif;
 }

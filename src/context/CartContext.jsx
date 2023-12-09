@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
   function addToCart(product, amount) {
     const updatedProduct = {...product, amount}
     setCartItems((prevCartItems) => [...prevCartItems, updatedProduct]);
-    axios.post('https://656c6204e1e03bfd572e3dbb.mockapi.io/api/cartItems', updatedProduct)
+    // axios.post('https://656c6204e1e03bfd572e3dbb.mockapi.io/api/cartItems', updatedProduct)
   };
 
   function deleteFromCart(itemId) {
