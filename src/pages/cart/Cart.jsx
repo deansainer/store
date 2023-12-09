@@ -5,7 +5,7 @@ import CartItem from "../../components/navbar/cart/CartItem";
 import axios from "axios";
 
 const Cart = () => {
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems } = useCart();
   const [cartTotal, setCartTotal] = useState(0);
 
   
