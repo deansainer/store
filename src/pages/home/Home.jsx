@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Product from "./product/Product";
 import classes from "./Home.module.css";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/Context";
 import axios from "axios";
 
 const Home = () => {
-  const { addToCart } = useCart();
+  const { addToCart, addToFavorites } = useCart();
   const [products, setProducts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
@@ -38,11 +38,12 @@ const Home = () => {
       </div>
 
       <div className={classes.product_list}>
-        {products.filter((product) =>
+        {products
+          .filter((product) =>
             product.name.toLowerCase().includes(searchValue.toLocaleLowerCase())
           )
           .map((product) => (
-            <Product key={product.id} product={product} addToCart={addToCart} />
+            <Product key={product.id} product={product} addToCart={addToCart} addToFavorites={addToFavorites}/>
           ))}
       </div>
     </div>

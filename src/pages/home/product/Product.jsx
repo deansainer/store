@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import classes from "./Product.module.css";
+import { useCart } from "../../../context/Context";
 
 const Product = (props) => {
   const { id, name, price, image } = props.product;
   const [amount, setAmount] = useState(1)
-  
+
   function handleAmount(e) {
     setAmount(e.target.value)
   }
-  
+
+
+
   function handleAddToCart() {
     props.addToCart(props.product, amount)
     setAmount(1)
@@ -22,6 +25,7 @@ const Product = (props) => {
       <div className={classes.amount_and_add}>
       <input onChange={handleAmount} value={amount} className={classes.amount_input} type="text"></input>
       <button onClick={handleAddToCart} className={classes.cart_btn}>+</button>
+      <button onClick={() => props.addToFavorites(props.product)} className={classes.cart_btn}>♡</button>
       </div>
     </div>
   );

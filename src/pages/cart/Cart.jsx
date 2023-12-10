@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../context/Context";
 import classes from "./Cart.module.css";
 import CartItem from "../../components/navbar/cart/CartItem";
 import axios from "axios";
@@ -8,7 +8,6 @@ const Cart = () => {
   const { cartItems } = useCart();
   const [cartTotal, setCartTotal] = useState(0);
 
-  
   useEffect(() => {
     const total = cartItems.reduce(
       (sum, item) => sum + item.price * item.amount,
@@ -16,7 +15,6 @@ const Cart = () => {
     );
     setCartTotal(total);
   }, [cartItems]);
-
 
   return (
     <div className={classes.cart_list}>

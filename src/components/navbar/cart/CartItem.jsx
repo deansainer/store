@@ -1,10 +1,10 @@
 import React from "react";
 import classes from "./CartItem.module.css";
-import { useCart } from "../../../context/CartContext";
+import { useCart } from "../../../context/Context";
 
 const CartItem = (props) => {
   const { id, name, price, image, amount } = props.cartItem;
-  const {deleteFromCart} = useCart()
+  const { deleteFromCart } = useCart();
 
   return (
     <div className={classes.cart}>
@@ -14,7 +14,9 @@ const CartItem = (props) => {
         <p>${price}</p>
         <p>Amount: {amount}</p>
       </div>
-      <button onClick={()=> deleteFromCart(id)} className={classes.cart_btn}>-</button>
+      <button onClick={() => deleteFromCart(id)} className={classes.cart_btn}>
+        -
+      </button>
     </div>
   );
 };
